@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    background: #e0e0e0; /* light gray */
+    font-family: 'Arial', sans-serif;
+}
+
+  .navbar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        min-width: 100vw;
+        background: #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 2rem;
+        box-sizing: border-box;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        z-index: 1000;
+    }
+    .navbar-left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    .navbar-title {
+        font-weight: bold;
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        color: #333;
+    }
+    .navbar-menu {
+        display: flex;
+        gap: 15rem;
+        flex-wrap: wrap;
+        padding: 0 10rem;
+    }
+    .navbar-menu a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1rem;
+        transition: color 0.2s;
+        word-break: break-word;
+    }
+    .navbar-menu a:hover {
+        color: #a88c5d;
+    }
+    @media (max-width: 700px) {
+        .navbar {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 0.75rem 1rem;
+        }
+        .navbar-menu {
+            width: 100%;
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+    }
+    @media (max-width: 400px) {
+        .navbar-title {
+            font-size: 1rem;
+        }
+        .navbar-menu a {
+            font-size: 0.9rem;
+        }
+    }
+
+
+/* ======================= */
+.hero-section {
+position: relative;
+width: 100vw;
+height: 90vh;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+}
