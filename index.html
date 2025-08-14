@@ -21,8 +21,78 @@
 
 
 <section class="hero-section">
-    <img src="./assets/website hero.png" alt="Hero Image" class="hero-image">
+    <img src="./assets/websitelayout2.png" alt="Hero Image" class="hero-image">
 </section>
+
+</style>
+
+<section class="section1" id="testimonials">
+    <div class="section1-title">//Testimonials</div>
+    <div class="testimonial-container">
+        <div class="testimonial-card">
+            <video class="testimonial-video" src="./assets/testimonial1.mp4" controls poster="./assets/testimonial1-thumb.jpg"></video>
+            <div class="testimonial-desc">
+                <strong>John Doe, CEO</strong><br>
+                "Gold Gray's work ethic and creativity helped our business grow. He was always responsive and delivered beyond expectations. Our project was completed ahead of schedule thanks to his dedication."
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <video class="testimonial-video" src="./assets/testimonial2.mp4" controls poster="./assets/testimonial2-thumb.jpg"></video>
+            <div class="testimonial-desc">
+                <strong>Jane Smith, Entrepreneur</strong><br>
+                "Gold Gray made a huge impact on our brand. His attention to detail and communication made the process smooth and enjoyable. I highly recommend him for any creative project."
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <video class="lightbox-video" id="lightboxVideo" controls></video>
+</div>
+
+
+
+
+
+<script>
+const testimonialVideos = document.querySelectorAll('.testimonial-video');
+const lightbox = document.getElementById('lightbox');
+const lightboxVideo = document.getElementById('lightboxVideo');
+const lightboxClose = document.getElementById('lightboxClose');
+
+testimonialVideos.forEach(video => {
+    video.addEventListener('click', function() {
+        lightbox.classList.add('active');
+        lightboxVideo.src = video.src;
+        lightboxVideo.poster = video.poster;
+        lightboxVideo.currentTime = 0;
+        lightboxVideo.play();
+    });
+});
+
+lightboxClose.addEventListener('click', function() {
+    lightbox.classList.remove('active');
+    lightboxVideo.pause();
+    lightboxVideo.src = '';
+});
+
+lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        lightboxVideo.pause();
+        lightboxVideo.src = '';
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        lightboxVideo.pause();
+        lightboxVideo.src = '';
+    }
+});
+</script>
 
 
 

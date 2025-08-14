@@ -27,6 +27,7 @@ body {
     .navbar-title {
         font-weight: bold;
         font-size: 1.3rem;
+        font-style: italic;
         letter-spacing: 2px;
         color: #333;
     }
@@ -107,4 +108,116 @@ justify-content: center;
 
 .hero-content p {
     font-size: 1.5rem;
+}
+
+/* ==================== */
+
+.section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: #181818;
+}
+.section1-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    align-self: start;
+    margin: 40px;
+    color:red;
+}
+.testimonial-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 100%;
+    max-width: 900px;
+}
+.testimonial-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    padding: 24px;
+    gap: 32px;
+}
+.testimonial-video {
+    width: 320px;
+    height: 180px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+.testimonial-video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.testimonial-desc {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+.lightbox.active {
+    display: flex;
+}
+.lightbox-video {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+.lightbox-close {
+    position: absolute;
+    top: 32px;
+    right: 48px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10001;
+    background: none;
+    border: none;
+}
+@media (max-width: 900px) {
+    .testimonial-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 16px;
+    }
+    .testimonial-video {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+}
+@media (max-width: 700px) {
+    .testimonial-container {
+        gap: 24px;
+    }
+    .section1-title {
+        font-size: 2rem;
+    }
+    .testimonial-card {
+        padding: 10px;
+    }
+    .testimonial-desc {
+        font-size: 1rem;
+    }
 }
