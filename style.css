@@ -13,7 +13,7 @@
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            min-height: 100vh;
+            min-height: 70vh;
             color: #fff;
             display: flex;
             align-items: center;
@@ -27,12 +27,19 @@
         .bg-projects-section {
            background-color: #121111;
             color: white;
-            padding: 60px 0;
+            
         }
         .navbar-brand i {
             margin-right: 8px;
         }
 
-.section-title-color{
+        .section-title-color{
     color: red !important;
-}
+        }
+
+        .video-card {
+            transition: box-shadow 0.3s;
+        }
+        .video-card:hover {
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
