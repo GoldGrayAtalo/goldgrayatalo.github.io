@@ -52,3 +52,9 @@
             background-color: red !important;
             border: none !important;
         }
+
+        .custom-color-secondary
+        {
+            color: #b3b3b3 !important;
+            font-style: italic;
+        }
