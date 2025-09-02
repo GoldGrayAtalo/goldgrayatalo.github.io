@@ -2,7 +2,7 @@
         @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
        
         body, html {
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif !important;
             margin: 0;
             padding: 0;
             height: 100%;
@@ -23,17 +23,19 @@
             background-color: #121111;
             color: white;
             padding: 60px 0;
+            border-bottom: #474747 solid 0.5px;
         }
         .bg-projects-section {
            background-color: #121111;
-            color: white;
+           color: white;
+
             
         }
         .navbar-brand i {
             margin-right: 8px;
         }
 
-        .section-title-color{
+        .section-title-color, .project-title{
     color: red !important;
         }
 
@@ -42,4 +44,11 @@
         }
         .video-card:hover {
             box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        .section-name{
+            font-weight: bold!important;
+        }
+        .btn-main{
+            background-color: red !important;
+            border: none !important;
         }

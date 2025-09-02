@@ -14,22 +14,22 @@
 <body>
     <!-- Sticky Navbar -->
     <nav class="navbar navbar-dark bg-dark sticky-top">
-        <div class="container-fluid">
+        <div class="container-fluid mx-5">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-user"></i> Portfolio
+                Portfolio
             </a>
-            <ul class="nav">
+            <ul class="nav gap-5">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fas fa-home"></i> Home</a>
+                    <a class="nav-link text-white" href="#"> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fas fa-address-card"></i> About</a>
+                    <a class="nav-link text-white" href="#"> Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fas fa-briefcase"></i> Projects</a>
+                    <a class="nav-link text-white" href="#"> Testimonials</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fas fa-envelope"></i> Contact</a>
+                    <a class="nav-link text-white" href="#"> View CV</a>
                 </li>
             </ul>
         </div>
@@ -40,11 +40,17 @@
     </section>
 
     <!-- Introduction -->
-    <section class="bg-introduction-section border-bottom border-light border-1">
+    <section class="bg-introduction-section">
         <div class="container my-5">
             <div class="row">
             <div class="col-md-12 align-self-center">
-                <h1 class="display-4">Hello, I'm Gold Gray.</h1>
+                <h1 class="display-4 fw-bolder">I’m a versatile <span class="project-title">multimedia designer who helps brands and businesses bring ideas to life</span> across every medium.</h1>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6 text-end">
+                <p> <p>From eye-catching graphics and engaging videos to interactive websites and polished presentations, I focus on creative clarity, smart execution, and fast delivery. Whether it’s visual storytelling, branding, or digital content, I deliver smooth, impactful solutions from concept to completion.</p></p>
             </div>
             
         </div>
@@ -52,8 +58,8 @@
 
     <!-- Projects -->
      <section class="bg-projects-section">
-        <h5 class=" section-title-color mx-3 py-3 mb-5 fst-italic">/ / Projects</h2>
-        <div class="container">
+        <h5 class=" section-title-color mx-3 py-3 mb-5 fst-italic">// <span class="section-name">Projects</span></h2>
+        <div class="container ">
             <div class="row ">
                 <div class="col-md-12">
                     <div class="h-100 gap-3">
@@ -61,13 +67,17 @@
                                 <div class="container">
                                     <div class="row align-items-center">
                                         <div class="col-md-4 col-12 mb-3 mb-md-0">
-                                            <img src="./assets/Boston250/E250thumbnail.png" alt="Project One" class="img-fluid rounded shadow">
+                                            <img src="./assets/Boston250/title-image.png" alt="Project One" class="img-fluid rounded shadow">
                                         </div>
                                         <div class="col-md-8 col-12 px-5">
                                             <h1 class="fw-bolder">Boston <span style="color: red ;";>Everyone 250</span></h1>
-                                            <p>
+                                            <p class="">
                                                 This is a brief description of Project One. It highlights the main features, technologies used, and the purpose of the project. The layout is fully responsive and adapts to different screen sizes.
                                             </p>
+                                            <button href="https://drive.google.com/file/d/1A2B3C4D5E6F7G8H9I0J/view" target="_blank" class="btn btn-primary btn-lg btn-main mt-3 fw-bolder">
+                                                View Visual Brand Application
+                                            </button>
+                                        
                                         </div>
                                  </div>
                          </div>
@@ -77,8 +87,8 @@
             </div>
         </div>
         <!-- motion graphic -->
-        <div class="container my-5 mb-5">
-            <h2 class="mb-4 fw-bolder text-danger">Motion Graphics / Video Edits</h2>
+        <div class="container my-5 mb-5 py-5">
+            <h2 class="mb-4 fw-bolder project-title">Motion Graphics / Video Edits</h2>
             <div class="row g-4">
                 <!-- Repeat this col for each video -->
                 <div class="col-sm-6 col-12">
@@ -123,38 +133,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-12"></div>
-                    <div class="card h-100 video-card">
-                        <div class="ratio ratio-16x9"></div>
-                            <iframe src="https://drive.google.com/file/d/1SbUuDEziQWlLOUoGUs84cXI55SCx0ulc/preview" allow="autoplay" allowfullscreen class="hover-autoplay"></iframe>
-                        </div>
+                <div class="col-sm-6 col-12">
+                <div class="card h-100 video-card">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://drive.google.com/file/d/1SbUuDEziQWlLOUoGUs84cXI55SCx0ulc/preview" allow="autoplay" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="col-sm-6 col-12">
-                    <div class="card h-100 video-card">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://drive.google.com/file/d/1CcJ1S1zr25UPCpI033t5L5_lo9bPC7b7/preview" allow="autoplay" allowfullscreen class="hover-autoplay"></iframe>
-                        </div>
+            </div>
+            <div class="col-sm-6 col-12">
+                <div class="card h-100 video-card">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://drive.google.com/file/d/1CcJ1S1zr25UPCpI033t5L5_lo9bPC7b7/preview" allow="autoplay" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
-        <script>
-        document.querySelectorAll('.hover-autoplay').forEach(function(iframe) {
-            const src = iframe.getAttribute('src');
-            iframe.parentElement.addEventListener('mouseenter', function() {
-                if (!iframe.src.includes('autoplay=1')) {
-                    iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
-                }
-            });
-            iframe.parentElement.addEventListener('mouseleave', function() {
-                iframe.src = src;
-            });
-        });
-        </script>
+
+        
+
+        </div>
         <!-- instagram reels -->
-        <div class="container my-5 mt-5">
-            <h2 class="mb-4">Instagram Carousel / Graphics</h2>
+        <div class="container my-5 mt-5 py-5">
+            <h2 class="mb-4 fw-bolder project-title">Instagram Carousel / Graphics</h2>
             <div class="row g-4">
             <!-- Repeat this col for each Instagram image -->
             <div class="col-md-4 col-sm-6 col-12">
@@ -181,21 +181,21 @@
             <div class="col-md-4 col-sm-6 col-12">
             <div class="card h-100">
             <div class="instagram-ratio">
-                <img src="./assets/Boston250/carousel/4th-of-julyArtboard-6.png" alt="Instagram Image 4" class="img-fluid rounded object-fit-cover w-100 h-100">
+                <img src="./assets/Boston250/carousel/4th-of-julyArtboard-7.png" alt="Instagram Image 4" class="img-fluid rounded object-fit-cover w-100 h-100">
             </div>
             </div>
             </div>
             <div class="col-md-4 col-sm-6 col-12">
             <div class="card h-100">
             <div class="instagram-ratio">
-                <img src="./assets/Boston250/carousel/4th-of-julyArtboard-7.png" alt="Instagram Image 5" class="img-fluid rounded object-fit-cover w-100 h-100">
+                <img src="./assets/Boston250/carousel/4th-of-julyArtboard-9.png" alt="Instagram Image 5" class="img-fluid rounded object-fit-cover w-100 h-100">
             </div>
             </div>
             </div>
             <div class="col-md-4 col-sm-6 col-12">
             <div class="card h-100">
             <div class="instagram-ratio">
-                <img src="./assets/Boston250/carousel/4th-of-julyArtboard-9.png" alt="Instagram Image 6" class="img-fluid rounded object-fit-cover w-100 h-100">
+                <img src="./assets/Boston250/carousel/4th-of-julyArtboard-6.png" alt="Instagram Image 6" class="img-fluid rounded object-fit-cover w-100 h-100">
             </div>
             </div>
             </div>
@@ -205,6 +205,95 @@
                 <img src="./assets/Boston250/carousel/4th-of-julyArtboard-8.png" alt="Instagram Image 7" class="img-fluid rounded object-fit-cover w-100 h-100">
             </div>
             </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+            <div class="card h-100">
+            <div class="instagram-ratio">
+                <img src="./assets/Boston250/2.a.png" alt="Instagram Image 8" class="img-fluid rounded object-fit-cover w-100 h-100">
+            </div>
+            </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+            <div class="card h-100">
+            <div class="instagram-ratio">
+                <img src="./assets/Boston250/3.a.png" alt="Instagram Image 8" class="img-fluid rounded object-fit-cover w-100 h-100">
+            </div>
+            </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+            <div class="card h-100">
+            <div class="instagram-ratio">
+                <img src="./assets/Boston250/4.a.png" alt="Instagram Image 10" class="img-fluid rounded object-fit-cover w-100 h-100">
+            </div>
+            </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+            <div class="card h-100">
+            <div class="instagram-ratio">
+                <img src="./assets/Boston250/5.a.png" alt="Instagram Image 11" class="img-fluid rounded object-fit-cover w-100 h-100">
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- printing colaterals -->
+        <div class="container my-5 mt-5">
+            <h2 class="mb-4 fw-bolder project-title">Print Collaterals Design</h2>
+            <div class="row g-4">
+            <!-- Repeat this col for each print design image -->
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="card h-100">
+                <div class="instagram-ratio">
+                    <a href="./assets/Boston250/poster-1.png" data-bs-toggle="modal" data-bs-target="#lightboxModal1">
+                    <img src="./assets/Boston250/poster-1.png" alt="Print Design 1" class="img-fluid rounded object-fit-cover w-100 h-100">
+                    </a>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="card h-100">
+                <div class="instagram-ratio">
+                    <a href="./assets/Boston250/Poster-2.3.png" data-bs-toggle="modal" data-bs-target="#lightboxModal2">
+                    <img src="./assets/Boston250/Poster-2.3.png" alt="Print Design 2" class="img-fluid rounded object-fit-cover w-100 h-100">
+                    </a>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="card h-100">
+                <div class="instagram-ratio">
+                    <a href="./assets/Boston250/poster-3.png" data-bs-toggle="modal" data-bs-target="#lightboxModal3">
+                    <img src="./assets/Boston250/poster-3.png" alt="Print Design 3" class="img-fluid rounded object-fit-cover w-100 h-100">
+                    </a>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Lightbox Modals -->
+        <div class="modal fade" id="lightboxModal1" tabindex="-1" aria-labelledby="lightboxModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img src="./assets/Boston250/poster-1.png" class="img-fluid rounded" alt="Print Design 1">
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="lightboxModal2" tabindex="-1" aria-labelledby="lightboxModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img src="./assets/Boston250/Poster-2.png" class="img-fluid rounded" alt="Print Design 2">
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="lightboxModal3" tabindex="-1" aria-labelledby="lightboxModalLabel3" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img src="./assets/Boston250/poster-3.png" class="img-fluid rounded" alt="Print Design 3">
             </div>
             </div>
         </div>
