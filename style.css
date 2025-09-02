@@ -28,6 +28,7 @@
         .bg-projects-section {
            background-color: #121111;
            color: white;
+           border-bottom: #474747 solid 0.5px;
 
             
         }
@@ -36,7 +37,7 @@
         }
 
         .section-title-color, .project-title{
-    color: red !important;
+            color: #ce0019 !important;
         }
 
         .video-card {
@@ -49,7 +50,7 @@
             font-weight: bold!important;
         }
         .btn-main{
-            background-color: red !important;
+            background-color: #ce0019 !important;
             border: none !important;
         }
 
@@ -58,3 +59,40 @@
             color: #b3b3b3 !important;
             font-style: italic;
         }
+
+        .fs-none{
+            font-style: none !important;
+            color: white !important;
+            text-decoration: none !important;
+        }
+
+        #seeWorkBtn {
+                        transition: color 0.3s;
+                        background: transparent;
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    #seeWorkBtn .btn-fill {
+                        background: #ce0019;
+                        z-index: 1;
+                        left: 0;
+                        top: 0;
+                        width: 0;
+                        height: 100%;
+                        position: absolute;
+                        transition: width 0.4s cubic-bezier(.4,0,.2,1);
+                        border-radius: inherit;
+                        pointer-events: none;
+                    }
+                    #seeWorkBtn:hover .btn-fill {
+                        width: 100%;
+                    }
+                    #seeWorkBtn .btn-text {
+                        color: #b3b3b3; /* Bootstrap secondary (grey) */
+                        transition: color 0.3s;
+                        position: relative;
+                        z-index: 2;
+                    }
+                    #seeWorkBtn:hover .btn-text {
+                        color: #fff;
+                    }
