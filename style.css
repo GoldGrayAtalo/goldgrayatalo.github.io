@@ -96,3 +96,9 @@
                     #seeWorkBtn:hover .btn-text {
                         color: #fff;
                     }
+
+footer{
+    background-color: #121111 !important;
+    color: white;
+    padding: 20px 0;
+}
