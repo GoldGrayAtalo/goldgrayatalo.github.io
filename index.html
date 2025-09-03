@@ -35,12 +35,13 @@
         </div>
     </nav>
     <!-- Fullscreen Section -->
-    <section class="bg-image-section">
-       
+    <section class="bg-image-section fade-in-section">
+        <!-- Add your content here -->
     </section>
-
+  
+    
     <!-- Introduction -->
-    <section class="bg-introduction-section">
+    <section class="bg-introduction-section fade-in-section  ">
         <div class="container my-5">
             <div class="row">
             <div class="col-md-12 align-self-center">
@@ -64,7 +65,7 @@
     </section>
     
     <!-- Testimonials Section -->
-    <section class="bg-testimonials-section py-5">
+    <section class="bg-testimonials-section py-5 ">
         <div class="container">
             <div class="row mb-4">
                 <div class="col text-center">
@@ -109,7 +110,7 @@
     </section>
 
     <!-- Projects -->
-     <section class="bg-projects-section">
+     <section class="bg-projects-section ">
         <h5 class=" section-title-color mx-3 py-3 mb-5 fst-italic">// <span class="section-name">Projects</span></h2>
         <div class="container ">
             <div class="row ">
@@ -356,7 +357,7 @@
      <!-- another client -->
 
      <!-- Projects -->
-     <section class="bg-projects-section">
+     <section class="bg-projects-section ">
         <h5 class=" section-title-color mx-3 py-3 mb-5 fst-italic">// <span class="section-name">Projects</span></h2>
         <div class="container ">
             <div class="row ">
@@ -675,7 +676,7 @@
 
      <!-- miceselenius -->
       <!-- Projects -->
-     <section class="bg-projects-section">
+     <section class="bg-projects-section ">
         <h5 class=" section-title-color mx-3 py-3 mb-5 fst-italic">// <span class="section-name">Projects</span></h2>
         <div class="container ">
             <div class="row ">
@@ -921,6 +922,44 @@
             document.getElementById('year').textContent = new Date().getFullYear();
         </script>
     </footer>
+
+
+
+    <style>
+    .fade-in-section {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        transition: opacity 0.8s cubic-bezier(.77,0,.175,1), transform 0.8s cubic-bezier(.77,0,.175,1);
+        will-change: opacity, transform;
+    }
+    .fade-in-section.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const faders = document.querySelectorAll('.fade-in-section');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -20px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(section => {
+            appearOnScroll.observe(section);
+        });
+    });
+    </script>
+
+
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
