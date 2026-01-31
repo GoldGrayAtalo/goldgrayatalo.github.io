@@ -4,29 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine Cards Carousel</title>
+    <link rel="icon" href="heart-favicon.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #800020 0%, #6b0019 50%, #5a0015 100%);
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
             padding: 40px 0;
             margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("heart-bg.jpg");
-    font-family: "Pixelify Sans", sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Pixelify Sans", sans-serif;
+            overflow: hidden;
         }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        @keyframes carouselBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+        
+        .bg-heart {
+            position: fixed;
+            opacity: 0.3;
+            font-size: 40px;
+            animation: float 4s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .heart-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
         .carousel-container {
             max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: carouselBounce 3s ease-in-out infinite;
         }
+        
         .carousel-item img {
             height: 600px;
             object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        
+        .carousel-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+        
         .carousel-control-prev,
         .carousel-control-next {
             width: 50px;
@@ -35,36 +82,44 @@
             transform: translateY(-50%);
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 50%;
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
+        
         .carousel-control-prev:hover,
         .carousel-control-next:hover {
             background-color: rgba(0, 0, 0, 0.7);
         }
+        
+        .carousel-control-prev.hidden,
+        .carousel-control-next.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
+    <div class="heart-animation" id="heartAnimation"></div>
     <div class="carousel-container">
-        <!-- <div class="container text-center mb-4">
-            <div class="d-flex justify-content-center">
-            <img src="./cat_heart.gif"  class="image-fluid w-25 " alt="Cute Cat">
-            </div>
-        </div> -->
+        <div class="container">
+            <img src="./cat_heart.gif" alt="">
+        </div>
         <div id="carouselCards" class="carousel slide" data-bs-ride="false" data-bs-wrap="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./Vcards/noteSlide1.png" class="d-block w-100" alt="Card 1">
+                    <img src="./Vcards/1.png" class="d-block w-100" alt="Card 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="./Vcards/noteSlide1.png" class="d-block w-100" alt="Card 2">
+                    <img src="./Vcards/2.png" class="d-block w-100" alt="Card 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="./Vcards/noteSlide1.png" class="d-block w-100" alt="Card 3">
+                    <img src="./Vcards/3.png" class="d-block w-100" alt="Card 3">
                 </div>
                 <div class="carousel-item">
-                    <img src="./Vcards/noteSlide1.png" class="d-block w-100" alt="Card 4">
+                    <img src="./Vcards/4.png" class="d-block w-100" alt="Card 4">
                 </div>
                 <div class="carousel-item">
-                    <img src="./Vcards/noteSlide1.png" class="d-block w-100" alt="Card 5">
+                    <img src="./Vcards/5.png" class="d-block w-100" alt="Card 5">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselCards" data-bs-slide="prev">
@@ -77,26 +132,68 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const carousel = document.getElementById('carouselCards');
+        const prevBtn = document.querySelector('.carousel-control-prev');
+        const nextBtn = document.querySelector('.carousel-control-next');
+
+        function updateButtonVisibility() {
+            const activeIndex = [...carousel.querySelectorAll('.carousel-item')].findIndex(item => item.classList.contains('active'));
+            const totalItems = carousel.querySelectorAll('.carousel-item').length;
+
+            prevBtn.classList.toggle('hidden', activeIndex === 0);
+            nextBtn.classList.toggle('hidden', activeIndex === totalItems - 1);
+        }
+
+        carousel.addEventListener('slide.bs.carousel', updateButtonVisibility);
+        updateButtonVisibility();
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = '-30px';
+            heart.style.fontSize = '20px';
+            heart.style.opacity = '1';
+            heart.style.pointerEvents = 'none';
+            
+            const duration = Math.random() * 4 + 3;
+            const keyframes = `
+                @keyframes fall-${Math.random()} {
+                    0% { transform: translateY(0); opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(${window.innerHeight + 50}px); opacity: 0; }
+                }
+            `;
+            
+            const style = document.createElement('style');
+            style.textContent = keyframes;
+            document.head.appendChild(style);
+            
+            heart.style.animation = `fall-${Math.random()} ${duration}s linear forwards`;
+            document.getElementById('heartAnimation').appendChild(heart);
+
+            setTimeout(() => heart.remove(), duration * 1000);
+        }
+
+        setInterval(createHeart, 500);
+
+        function createBackgroundHearts() {
+            const container = document.body;
+            for (let i = 0; i < 20; i++) {
+                const bgHeart = document.createElement('div');
+                bgHeart.className = 'bg-heart';
+                bgHeart.innerHTML = '❤️';
+                bgHeart.style.left = Math.random() * 100 + '%';
+                bgHeart.style.top = Math.random() * 100 + '%';
+                bgHeart.style.animationDelay = (i * 0.2) + 's';
+                bgHeart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                container.insertBefore(bgHeart, container.firstChild);
+            }
+        }
+        
+        createBackgroundHearts();
+    </script>
 </body>
 </html>
-<script>
-    document.addEventListener('mousemove', (e) => {
-        const heart = document.createElement('div');
-        heart.innerHTML = '❤️';
-        heart.style.position = 'fixed';
-        heart.style.left = e.clientX + 'px';
-        heart.style.top = e.clientY + 'px';
-        heart.style.pointerEvents = 'none';
-        heart.style.fontSize = '20px';
-        heart.style.opacity = '1';
-        heart.style.transform = 'translate(-50%, -50%)';
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.style.transition = 'opacity 0.6s ease-out';
-            heart.style.opacity = '0';
-        }, 10);
-
-        setTimeout(() => heart.remove(), 600);
-    });
-</script>
